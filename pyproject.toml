@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "liblib-mcp-server"
+version = "0.1.0"
+description = "LiblibAI MCP server over Streamable HTTP"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.27,<1",
+  "mcp>=1.9.4,<2",
+  "pydantic>=2.8,<3",
+  "starlette>=0.37,<1",
+  "uvicorn>=0.30,<1",
+]
+
+[project.scripts]
+liblib-mcp-server = "liblib_mcp.server:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

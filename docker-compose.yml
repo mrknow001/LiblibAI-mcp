@@ -1,0 +1,29 @@
+services:
+  liblib-mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: liblib-mcp-server
+    restart: unless-stopped
+    ports:
+      - "18081:8000"
+    environment:
+      LIBLIB_ACCESS_KEY: "REPLACE_LIBLIB_ACCESS_KEY"
+      LIBLIB_SECRET_KEY: "REPLACE_LIBLIB_SECRET_KEY"
+      LIBLIB_BASE_URL: "https://openapi.liblibai.cloud"
+      LIBLIB_OUTPUT_DIR: "/data/output"
+      LIBLIB_HOST: "0.0.0.0"
+      LIBLIB_PORT: "8000"
+      LIBLIB_MCP_PATH: "/mcp"
+      LIBLIB_AUTO_DOWNLOAD_RESULTS: "true"
+      LIBLIB_REQUEST_TIMEOUT_SECONDS: "120"
+      LIBLIB_DEFAULT_POLL_INTERVAL_SECONDS: "5"
+      LIBLIB_DEFAULT_POLL_TIMEOUT_SECONDS: "900"
+    volumes:
+      - ./output:/data/output
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz').read()"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
