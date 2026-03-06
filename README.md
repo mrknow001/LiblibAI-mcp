@@ -43,6 +43,17 @@
 
 ## 快速开始
 
+**※※※后面AI写的，废话挺多的，有docker直接使用如下命令：※※※**
+
+```
+docker run --rm \
+  -p 18081:8000 \
+  -e LIBLIB_ACCESS_KEY=你的AccessKey \
+  -e LIBLIB_SECRET_KEY=你的SecretKey \
+  -v $(pwd)/output:/data/output \
+  galaxy5321755/liblibai-mcp-server:latest
+```
+
 ### 一、手动启动
 
 #### 1. 安装依赖
