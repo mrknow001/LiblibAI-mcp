@@ -146,8 +146,16 @@ LIBLIB_SECRET_KEY: "REPLACE_LIBLIB_SECRET_KEY"//请替换为你的SecretKey
 
 ##### 2. 启动服务
 
+源码编译镜像
+
 ```
 docker compose up -d --build 
+```
+
+云端拉取镜像
+
+```
+docker run galaxy5321755/liblibai-mcp-server
 ```
 
 ##### 3. 导入 MCP

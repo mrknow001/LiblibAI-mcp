@@ -1,8 +1,6 @@
 services:
   liblib-mcp-server:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: galaxy5321755/liblibai-mcp-server:latest
     container_name: liblib-mcp-server
     restart: unless-stopped
     ports:
