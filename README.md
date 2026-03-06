@@ -46,12 +46,15 @@
 **※※※后面AI写的，废话挺多的，有docker直接使用如下命令：※※※**
 
 ```
-docker run --rm \
+docker run -d --rm \
   -p 18081:8000 \
   -e LIBLIB_ACCESS_KEY=你的AccessKey \
   -e LIBLIB_SECRET_KEY=你的SecretKey \
   -v $(pwd)/output:/data/output \
+  --name liblibai-mcp-server \
   galaxy5321755/liblibai-mcp-server:latest
+
+
 ```
 
 ### 一、手动启动
